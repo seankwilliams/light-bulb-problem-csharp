@@ -8,6 +8,8 @@
 
 body {
 	margin: 0;
+	padding:0 12px;
+	font-family: Arial, helvetica, sans-serif;
 }
 * {
 	box-sizing: border-box;
@@ -20,7 +22,7 @@ input.error {
 .container {
 	overflow: hidden;
 	max-width: 1028px;
-	margin: 0 auto;
+	margin: 8px auto 0;
 }
 .parameters, .results {
 	float:left;
@@ -38,14 +40,48 @@ input.error {
 	div {
 		margin-bottom: 4px;
 	}
+	input {
+		width: 200px;
+		border-radius: 8px;
+		height: 50px;
+		font-size: 20px;
+		padding: 10px 0px 10px 20px;
+		border: 1px solid #000;
+		margin: 8px 0 16px;
+	}
+	input[type="submit"] {
+		text-align: center;
+		padding: 10px 0;
+		background: #fffee0;
+	}
+}
+body.loading {
+	.parameters input[type="submit"] {
+		background: #eee;
+		color: #888;
+		cursor: wait;
+	}
 }
 .results {
 	&__values {
 		display: none;
+		
+		&__total {
+			font-size: 25px;
+			
+			img {
+				vertical-align: middle;
+			}
+			
+			span {
+				color: #ff8d12;
+				font-weight: bold;
+			}
+		}
 	}
 	
-	span {
-		font-weight: bold;
+	span#specific-light-bulbs-on {
+		color: #666;
 	}
 	
 	@media @screen-xs {

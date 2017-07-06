@@ -4,10 +4,11 @@ var $people = $("input[name=people]");
 var $resultsValues = $(".results__values");
 var $totalLightBulbsOn = $("#total-light-bulbs-on");
 var $specificLightBulbsOn = $("#specific-light-bulbs-on");
+var $body = $("body");
 var lightBulbs, people, startTime;
 
 $(function() {
-	//hide results when changing values
+	//hide results when changing values, and format numbers
 	$lightBulbs.add($people).change(function(){
 		$resultsValues.hide();
 	});
@@ -15,6 +16,8 @@ $(function() {
 	//process user input
 	$("form").submit(function(e) {
 		e.preventDefault();
+		
+		if ($body.hasClass("loading")) return;
 		
 		lightBulbs = Number($lightBulbs.val());
 		people = Number($people.val());
@@ -33,13 +36,15 @@ $(function() {
 		}
 		if (error) return;
 		
-		$.get("https://sean-test-functions.azurewebsites.net/api/CalculateLightBulbState", {
-				"code": "FoclIyUdkAMHI5q8KvYINwfXNrZdoPiQx5Kbx/M9VpTeIeN/Ic1Pbw==",
+		$body.addClass("loading");
+		
+		$.post("https://sean-test-functions.azurewebsites.net/api/CalculateLightBulbState?code=FoclIyUdkAMHI5q8KvYINwfXNrZdoPiQx5Kbx/M9VpTeIeN/Ic1Pbw==", {
 				"lightBulbs": lightBulbs,
 				"people": people
 			}, function(results) {
+				$body.removeClass("loading");
 				//output results
-				$totalLightBulbsOn.html(results.length);
+				$totalLightBulbsOn.html(formatNumberWithCommas(results.length));
 				$specificLightBulbsOn.html(results.join(', '));
 				$resultsValues.show();
 				
@@ -57,3 +62,9 @@ Number.isInteger = Number.isInteger || function(value) {
 		isFinite(value) && 
 		Math.floor(value) === value;
 };
+
+function formatNumberWithCommas(n) {
+	n = String(n);
+	n = n.replace(",", "");
+	return n.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+}

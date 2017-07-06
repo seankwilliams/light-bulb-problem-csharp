@@ -5,18 +5,26 @@
 	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- styles are generated from styles.less, included inline since they are lightweight to prevent a render-blocking request -->
-	<style type="text/css">body{margin:0}*{box-sizing:border-box}input.error{border-color:Red}.container{overflow:hidden;max-width:1028px;margin:0 auto}.parameters,.results{float:left;width:50%}@media screen and (max-width: 768px){.parameters,.results{width:100%;float:none}}.parameters{padding-right:12px}.parameters div{margin-bottom:4px}.results__values{display:none}.results span{font-weight:bold}@media screen and (max-width: 768px){.results{margin-top:12px}}</style>
+	<style type="text/css">body{margin:0;padding:0 12px;font-family:Arial,helvetica,sans-serif}*{box-sizing:border-box}input.error{border-color:Red}.container{overflow:hidden;max-width:1028px;margin:8px auto 0}.parameters,.results{float:left;width:50%}@media screen and (max-width: 768px){.parameters,.results{width:100%;float:none}}.parameters{padding-right:12px}.parameters div{margin-bottom:4px}.parameters input{width:200px;border-radius:8px;height:50px;font-size:20px;padding:10px 0 10px 20px;border:1px solid #000;margin:8px 0 16px}.parameters input[type="submit"]{text-align:center;padding:10px 0;background:#fffee0}body.loading .parameters input[type="submit"]{background:#eee;color:#888;cursor:wait}.results__values{display:none}.results__values__total{font-size:25px}.results__values__total img{vertical-align:middle}.results__values__total span{color:#ff8d12;font-weight:bold}.results span#specific-light-bulbs-on{color:#666}@media screen and (max-width: 768px){.results{margin-top:12px}}</style>
 </head>
 <body>
 	<div class="container">
+		<h1>How many light bulbs are on?</h1>
+		<p>
+			There are <em>x</em> light bulbs lined up in a row in a long room. Each bulb has its own switch and is currently 
+			switched off. The room has an entry door and an exit door. There are <em>y</em> people lined up outside the entry 
+			door. Each bulb is numbered consecutively from 1 to <em>x</em>. So is each person. Person No. 1 enters the room, 
+			switches on every bulb, and exits. Person No. 2 enters and flips the switch on every second bulb (turning off 
+			bulbs 2, 4, 6, ...). Person No. 3 enters and flips the switch on every third bulb (changing the state on bulbs 3, 
+			6, 9, ...). This continues until all people have passed through the room. 
+		</p>
 		<form class="parameters">
-			<h3>Parameters</h3>
 			<div>
-				<label for="light-bulbs">Number of light bulbs:</label>
+				<label for="light-bulbs">How many light bulbs?</label><br />
 				<input name="light-bulbs" type="number" value="100" />
 			</div>
 			<div>
-				<label for="people">Number of people:</label>
+				<label for="people">How many people?</label><br />
 				<input name="people" type="number" value="100" />
 			</div>
 			<div>
@@ -24,9 +32,9 @@
 			</div>
 		</form>
 		<div class="results">
-			<h3>Results</h3>
 			<div class="results__values">
-				<p>
+				<p class="results__values__total">
+					<img src="images/light-bulb.jpg" srcset="images/light-bulb@2x.jpg" />
 					There are <span id="total-light-bulbs-on"></span> light bulbs on.
 				</p>
 				<p>
