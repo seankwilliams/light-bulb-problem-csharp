@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lightbulb Problem - jQuery</title>
+	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- styles are generated from styles.less, included inline since they are lightweight to prevent a render-blocking request -->
+	<style type="text/css">body{margin:0}*{box-sizing:border-box}input.error{border-color:Red}.container{overflow:hidden;max-width:1028px;margin:0 auto}.parameters,.results{float:left;width:50%}@media screen and (max-width: 768px){.parameters,.results{width:100%;float:none}}.parameters{padding-right:12px}.parameters div{margin-bottom:4px}.results__values{display:none}.results span{font-weight:bold}@media screen and (max-width: 768px){.results{margin-top:12px}}</style>
+</head>
+<body>
+	<div class="container">
+		<form class="parameters">
+			<h3>Parameters</h3>
+			<div>
+				<label for="light-bulbs">Number of light bulbs:</label>
+				<input name="light-bulbs" type="number" value="100" />
+			</div>
+			<div>
+				<label for="people">Number of people:</label>
+				<input name="people" type="number" value="100" />
+			</div>
+			<div>
+				<input name="submit" type="submit" value="Submit" />
+			</div>
+		</form>
+		<div class="results">
+			<h3>Results</h3>
+			<div class="results__values">
+				<p>
+					There are <span id="total-light-bulbs-on"></span> light bulbs on.
+				</p>
+				<p>
+					The following light bulbs are on: <span id="specific-light-bulbs-on"></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+	<script src="main.js" type="text/javascript"></script>
+</body>
+</html>

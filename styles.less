@@ -1,0 +1,54 @@
+/* 
+	generate with this in command line:
+		lessc styles.less styles.css -compress
+	place into the inline style tag in index.html (at this amount of CSS, we'll inline CSS to avoid a render-blocking call to an external stylesheet)
+*/
+
+@screen-xs: ~"screen and (max-width: 768px)";
+
+body {
+	margin: 0;
+}
+* {
+	box-sizing: border-box;
+}
+input.error {
+	border-color: Red;
+}
+
+
+.container {
+	overflow: hidden;
+	max-width: 1028px;
+	margin: 0 auto;
+}
+.parameters, .results {
+	float:left;
+	width: 50%;
+	
+	@media @screen-xs {
+		width: 100%;
+		float: none;
+	}
+}
+
+.parameters {
+	padding-right: 12px;
+	
+	div {
+		margin-bottom: 4px;
+	}
+}
+.results {
+	&__values {
+		display: none;
+	}
+	
+	span {
+		font-weight: bold;
+	}
+	
+	@media @screen-xs {
+		margin-top: 12px;
+	}
+}
