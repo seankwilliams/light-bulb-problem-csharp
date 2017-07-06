@@ -1,8 +1,7 @@
 The CalculateLightBulbStatus endpoint is set up in Azure Functions and can be called with this endpoint:
 
-	POST https://sean-test-functions.azurewebsites.net/api/CalculateLightBulbState
+	POST https://sean-test-functions.azurewebsites.net/api/CalculateLightBulbState?code=FoclIyUdkAMHI5q8KvYINwfXNrZdoPiQx5Kbx/M9VpTeIeN/Ic1Pbw==
 	{
-		code: "FoclIyUdkAMHI5q8KvYINwfXNrZdoPiQx5Kbx/M9VpTeIeN/Ic1Pbw==",
 		lightBulbs: [value],
 		people: [value]
 	}
